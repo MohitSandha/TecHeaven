@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecHeaven</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/productViewStyles.css') }}"/>
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('index') }}">TecHeaven</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active nav-bttn" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-bttn" href="{{ url_for('categories') }}">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-bttn" href="{{ url_for('aboutUs') }}">About Us</a>
+                        </li>
+                    </ul>
+    
+                    <!-- Search and Cart -->
+                    <div class="container d-flex justify-content-end col-lg-8 col-md-12 searchAndcart">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                  </svg>
+                            </button>
+                        </form>
+                        <li class="nav-item">
+                            <a href="{{ url_for('cart') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-bag" viewBox="0 0 16 16">
+                                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <div class="d-flex">
+                            {% if session.get('user_id') %}
+                                <!-- Display user initials in a circle -->
+                                <div class="dropdown">
+                                    <!-- <button class="user-initials-circle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+                                    <div class="user-initials-circle " data-bs-toggle="dropdown" type="button">
+                                        {{ session['first_name'][0].upper() }}{{ session['last_name'][0].upper() }}
+                                    </div>
+                                    <!-- </button> -->
+                                    <ul class="dropdown-menu bg-dark">
+                                      <li><a href="{{ url_for('logout') }}" class="dropdown-item" style="color: white;">Logout</a></li>
+                                      <li><a class="dropdown-item" href="#" style="color: white;">Address</a></li>
+                                      
+                                    </ul>
+                                  </div>
+                                    
+                            {% else %}
+                                <a href="{{ url_for('login') }}" class="btn btn-light ms-3">Login</a>
+                                <a href="{{ url_for('signup') }}" class="btn btn-outline-light ms-3">Sign Up</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container-fluid" id="productViewAndDescription">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-4">
+                    <div class="imageDiv">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            
+                            <!-- Carousel Indicators -->
+                            <div class="carousel-indicators">
+                                <!-- Main image indicator -->
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    
+                                <!-- Dynamic indicators for image1.jpg to image5.jpg -->
+                                {% for i in range(1, 5) %}
+                                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="{{ i }}" aria-label="Slide {{ i + 1 }}"></button>
+                                {% endfor %}
+                            </div>
+                    
+                            <!-- Carousel Images -->
+                            <div class="carousel-inner">
+                                <!-- Main Image -->
+                                <div class="carousel-item active">
+                                    <img src="{{ url_for('static', filename='img/' ~ product_details['image_url'] ~ '/main.jpg') }}"
+                                         class="d-block w-100" alt="Main Image">
+                                </div>
+                    
+                                <!-- Additional Images -->
+                                {% for i in range(1, 4) %}
+                                    <div class="carousel-item">
+                                        <img src="{{ url_for('static', filename='img/' ~ product_details['image_url'] ~ '/image' ~ i ~ '.jpg') }}"
+                                             class="d-block w-100" alt="Product Image {{ i }}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                    
+                            <!-- Carousel Controls -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                    
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 productDetailDiv">
+                    <label id="productTitle">{{ product_details['name'] }}</label>
+                    <label id="categoryType">{{product_details['category_name']}}</label>
+                    <a href="#technicalInformationLabel"> More Detail</a>
+                    <p>Ref {{product_details['product_id'] + 1000}}</p>
+                    <label id="price">£{{product_details['price']}}</label>
+                    <div id="smallerDivider" class="divider my-1" ></div>
+                    <button type="button" class="btn btn-outline-primary addToCartbtn" data-product-id="{{ product_details['product_id'] }}">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid ProductInformationDiv">
+            <div class="row">
+                <div class="col-lg-12">
+                    <label id="productInformationMainLabel"> PRODUCT INFORMATION</label>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid technicalInformationDiv">
+            <div class="row">
+                <div class="col-lg-12">
+                    <label id="technicalInformationLabel"> TECHNICAL INFORMATION</label>
+                </div>
+        
+                <div class="col-lg-12">
+                    <div class="technicalInfoItem">
+                        <label class="technicalAtrriLabel">CPU - </label><span><label class="technicalAtrriAV" id="CPU">{{product_details['cpu']}}</label></span>
+                    </div>
+                    <div class="technicalInfoItem">
+                        <label class="technicalAtrriLabel">Memory - </label><span><label class="technicalAtrriAV" id="Memory">{{product_details['mem']}}</label></span>
+                    </div>
+                    <div class="technicalInfoItem">
+                        <label class="technicalAtrriLabel">Storage - </label><span><label class="technicalAtrriAV" id="Storage">{{product_details['storage']}}</label></span>
+                    </div>
+                    <!-- <div class="technicalInfoItem">
+                        <label class="technicalAtrriLabel">GPU - </label><span><label class="technicalAtrriAV" id="GPU"> i9108k</label></span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid productInformationDiv">
+            <div class="row">
+                <div class="col"><label id="productInformationLabel"> DEVICE INFORMATION</label></div>
+                <div class="col-lg-11">
+                <label id="PrductInformation">{{product_details['description']}}</div>
+            </div>
+        </div>
+
+        <div class="container-fluid ratingsDiv">
+            <div class="row">
+                <div class="col"><label id="ratingsLabel">RATINGS</label></div>
+            </div>
+        </div>
+
+        <div class="container-fluid ratingsDiv">
+            <div class="row">
+                <div class="col-lg-4 col-md-10">
+                    <div>
+                        <label id="averageRating" class="ratingsAndStarsDiv">{{product_details['ratings']}}</label>
+                        <div id="starsSvgs" class="ratingsAndStarsDiv">
+                            <svg class="ratingstarsImg" width="25" height="25" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 .25l2.45 5.06L16 6.36l-4 3.9.95 5.59L8 12.8l-4.95 2.6.95-5.59-4-3.9 5.55-.85L8 .25z" />
+                            </svg>
+                            <svg class="ratingstarsImg" width="25" height="25" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 .25l2.45 5.06L16 6.36l-4 3.9.95 5.59L8 12.8l-4.95 2.6.95-5.59-4-3.9 5.55-.85L8 .25z" />
+                            </svg>
+                            <svg class="ratingstarsImg halfStar" width="25" height="25" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 .25l2.45 5.06L16 6.36l-4 3.9.95 5.59L8 12.8l-4.95 2.6.95-5.59-4-3.9 5.55-.85L8 .25z" />
+                            </svg>
+                            <svg class="ratingstarsImg emptyStar" width="25" height="25" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 .25l2.45 5.06L16 6.36l-4 3.9.95 5.59L8 12.8l-4.95 2.6.95-5.59-4-3.9 5.55-.85L8 .25z" />
+                            </svg>
+                            <svg class="ratingstarsImg emptyStar" width="25" height="25" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 .25l2.45 5.06L16 6.36l-4 3.9.95 5.59L8 12.8l-4.95 2.6.95-5.59-4-3.9 5.55-.85L8 .25z"  />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-10 md-mx-3 progress-container">
+                    <progress id="star5" value="0" max="100" class="progressBar"></progress>
+                    <progress id="star4" value="0" max="100" class="progressBar"></progress>
+                    <progress id="star3" value="0" max="100" class="progressBar"></progress>
+                    <progress id="star2" value="0" max="100" class="progressBar"></progress>
+                    <progress id="star1" value="0" max="100" class="progressBar"></progress>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/productViewScript.js') }}"></script>
+</body>
+</html>
+

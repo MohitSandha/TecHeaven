@@ -1,0 +1,278 @@
+/* @font-face {
+    font-family: 'PlayfairNormal';
+    src: url('../fonts/logo/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+:root {
+    --MainLabelFont: Orbitron;
+    --MainLabelFontColor: #5C3D2E;
+  }
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoItalic';
+    src: url('../fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PlayfairItalic';
+    src: url('../fonts/logo/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/Orbitron-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    /* background-color: #D6C6A9; */
+    background-color: #EDE0D4
+}
+
+.nav-bttn:hover{
+    color: #FFA725;
+}
+
+.navbar-brand{
+    font-family: PlayfairItalic;
+    font-size: 2rem;
+    color: #eea02a;
+    cursor: pointer;
+}
+
+.navbar-brand:hover{
+    color: #FFA725;
+}
+
+.user-initials-circle {
+    margin-left: 1rem;
+    width: 45px;
+    height: 100%;
+    background-color: white;
+    color: #FFA725;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.mainTitles{
+    
+    font-family: Quicksand;  
+    color: var(--MainLabelFontColor);
+    font-size: 2.3rem;
+}
+
+
+.custom-carousel {
+    max-height: 600px; 
+    border-radius: 1rem;
+    margin-top: 3rem;
+}
+
+.custom-carousel img {
+    height: 600px; /* Ensures images fit within the carousel */
+    object-fit: cover; /* Prevents image distortion */
+    border-radius: 1rem;
+}
+
+.div0R0C, .div0R1C{
+    border-radius: 0.3rem;
+}
+
+
+.R1C2image{
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+}
+.R1C2div{
+    margin-top: 3rem;
+    border-radius: 1rem;
+    height: 600px;
+    box-shadow: #5C3D2E;
+
+}
+
+.R1C2row{
+    margin-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+@media (max-width: 768px) {
+    .Row1R2C{
+        height: 300px;
+    }
+
+    .searchAndcart{
+        height: 4rem;
+        width:4rem;
+    }
+
+    .landscapeImageDiv{
+        height: 300px;
+
+    }
+
+    .landscapeDiv{
+        height: 300px;
+    }
+
+    .HomePageCategoriesScroll{
+        margin-left: 1rem;
+       
+    }
+
+
+    #HomePageCategoriesLabel{
+        margin-left: 1rem;
+    }
+
+    .scroll-item img {
+        height: 200px;
+    }
+
+}
+
+/*  */
+.icon-link-hover .bi{
+    transition: transform 0.2s ease-in-out;
+    /* color: currentColor; */
+}
+
+.icon-link-hover:hover .bi {
+        transform: translateX(5px);
+        
+}
+
+.link-box{
+        padding: 0.8rem;
+        position: absolute; /* Enables free positioning */
+        bottom: 10%;  
+        left: 45%; 
+        text-align: center;
+        border: 1.5px solid white;
+}
+
+.landscapeImageDiv{
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.landscapeDiv{
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+}
+/* Scrollable container */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 15px 20px;
+    white-space: nowrap;
+}
+
+/* Scroll items (cards) */
+.scroll-item {
+    
+    width: 400px;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.scroll-item:hover {
+    transform: scale(1.05);
+}
+
+/* Card image */
+.scroll-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Card body styling */
+.card-body {
+    padding: 20px;
+    font-size: 16px;
+}
+
+/* Card title */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Card text (description) */
+.card-text {
+    font-size: 0.875rem;
+    color: #555;
+}
+
+.HomePageCategoriesScroll{
+    margin-left: 5rem;
+   
+}
+
+#HomePageCategoriesLabel{
+    font-size: 3rem;
+    justify-content: center;
+    margin-left: 6rem;
+}
+.scrollDiv{
+    margin-top: 4rem;
+   
+}
+/* Change arrow color to white */
+
+.accordion-button::after {
+    filter: invert(1); /* Inverts the color to white */
+}
+
+/* Remove blue border and shadow */
+.accordion-button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Keep button dark even when expanded */
+.accordion-button:not(.collapsed) {
+  
+    color: white !important;
+    box-shadow: none !important;
+}
+
+/* Ensure text remains visible */
+.accordion-body {
+    color: white !important;
+}

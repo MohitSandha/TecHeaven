@@ -1,0 +1,119 @@
+<footer class="bg-dark text-white py-5">
+  <div class="container">
+      <!-- Accordion (Visible on Small Screens) -->
+      <div class="accordion d-block d-md-none" id="footerAccordion">
+          <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-dark text-white border-0" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#footerLinks" aria-expanded="false">
+                      Popular Links
+                  </button>
+              </h2>
+              <div id="footerLinks" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                      <ul class="list-unstyled">
+                          <li><a href="{{url_for('index')}}" class="text-white">Home</a></li>
+                          <li><a href="{{url_for('categories')}}" class="text-white">Shop</a></li>
+                          <li><a href="#" class="text-white">Contact</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-dark text-white border-0" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#footerSupport" aria-expanded="false">
+                      Support
+                  </button>
+              </h2>
+              <div id="footerSupport" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                      <ul class="list-unstyled">
+                          <li><a href="#" class="text-white">FAQ</a></li>
+                          <li><a href="#" class="text-white">Customer Support</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-dark text-white border-0" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#AboutUs" aria-expanded="false">
+                      About TechHeaven
+                  </button>
+              </h2>
+              <div id="AboutUs" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                      <ul class="list-unstyled">
+                          <li><a href="url_for{{'aboutUs'}}" class="text-white">About Techeaven</a></li>
+                          <li><a href="#" class="text-white">Customer Support</a></li>
+                      </ul>
+                  </div>
+              </div>
+              
+          </div>
+          <div class="accordion-item bg-dark border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-white border-0" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#ImportantNotice" aria-expanded="false">
+                    Important Notice
+                </button>
+            </h2>
+            <div id="ImportantNotice" class="accordion-collapse collapse">
+                <div class="accordion-body text-white">
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <strong>Disclaimer:</strong> All product names, logos, and brands are the property of their respective owners. 
+                            Images and descriptions featured on TecHeaven are used solely for educational and illustrative purposes.
+                            TecHeaven does not claim ownership or affiliation with any of the mentioned products or companies.  
+                            Some product details may be fictional or inspired by publicly available information.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Normal Footer Links (Visible on Large Screens) -->
+      <div class="row d-none d-md-flex">
+          <div class="col-md-4">
+              <h5>Popular Links</h5>
+              <ul class="list-unstyled">
+                  <li><a href="{{url_for('index')}}" class="text-white">Home</a></li>
+                  <li><a href="{{url_for('categories')}}" class="text-white">Shop</a></li>
+                  <li><a href="{{url_for('aboutUs')}}" class="text-white">Contact</a></li>
+              </ul>
+          </div>
+          <div class="col-md-4">
+              <h5>Support</h5>
+              <ul class="list-unstyled">
+                  <li><a href="{{url_for('faqPage')}}" class="text-white">FAQ</a></li>
+                  <li><a href="#" class="text-white">Customer Support</a></li>
+              </ul>
+          </div>
+          <div class="col-md-4">
+              <h5>About US</h5>
+              <ul class="list-unstyled">
+                  <li><a href="{{url_for('aboutUs')}}" class="text-white">About Techeaven</a></li>
+                  <li><a href="{{url_for('aboutUs')}}" class="text-white">Customer Support</a></li>
+              </ul>
+          </div>
+      
+
+      <div>
+        <p>
+            <strong>Disclaimer:</strong> All product names, logos, and brands are the property of their respective owners. 
+                            Images and descriptions featured on TecHeaven are used solely for educational and illustrative purposes.
+                            TecHeaven does not claim ownership or affiliation with any of the mentioned products or companies.  
+                            Some product details may be fictional or inspired by publicly available information.
+        </p>
+      </div>
+    </div>
+
+      <!-- Copyright -->
+      <div class="text-center mt-3">
+          <p>&copy; 2024 MyWebsite | All Rights Reserved</p>
+      </div>
+  </div>
+</footer>

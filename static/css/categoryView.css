@@ -1,0 +1,118 @@
+/* @font-face {
+    font-family: 'PlayfairNormal';
+    src: url('../fonts/logo/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+:root {
+    --MainLabelFont: Orbitron;
+    --MainLabelFontColor: #5C3D2E;
+  }
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoItalic';
+    src: url('../fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PlayfairItalic';
+    src: url('../fonts/logo/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/Orbitron-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    background-color: #EDE0D4;
+}
+.nav-bttn:hover{
+    color: #FFA725;
+}
+
+.navbar-brand{
+    font-family: PlayfairItalic;
+    font-size: 2rem;
+    color: #eea02a;
+    cursor: pointer;
+}
+
+.navbar-brand:hover{
+    color: #FFA725;
+}
+
+.user-initials-circle {
+    margin-left: 1rem;
+    width: 45px;
+    height: 100%;
+    background-color: white;
+    color: blue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.decadesLabel{
+    font-size: 3rem;
+    font-family: var(--MainLabelFont);
+    color: var(--MainLabelFontColor);
+    
+}
+
+.cardImage{
+    height: 300px;
+    object-fit: cover;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 22rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+
+.name{
+    font-size: 1.5rem;
+    color: var(--MainLabelFontColor);
+}
+
+.price{
+    font-size: 1.2rem;
+    color: var(--MainLabelFontColor);
+    font-weight: bold;
+}
+
+.moreInfo{
+    color: #aa8f71
+}
+
+
+.side-pane{
+    height: 100vh;
+}

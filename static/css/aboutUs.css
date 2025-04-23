@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoItalic';
+    src: url('../fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PlayfairItalic';
+    src: url('../fonts/logo/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/Orbitron-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --MainLabelFont: Orbitron;
+  }
+
+  .nav-bttn:hover{
+    color: #FFA725;
+}
+
+.navbar-brand{
+    font-family: PlayfairItalic;
+    font-size: 2rem;
+    color: #eea02a;
+    cursor: pointer;
+}
+
+.navbar-brand:hover{
+    color: #FFA725;
+}
+
+.user-initials-circle {
+    margin-left: 1rem;
+    width: 45px;
+    height: 100%;
+    background-color: white;
+    color: blue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.divider {
+    height: 5px;
+    background-color: #353535;
+    width: 80%;
+}
+
+body{
+    background-color: #EDE0D4;
+}
+.aboutUsDiv{
+    margin-top: 5rem;
+}
+
+.twodivs .imageDiv {
+    height: 400px;
+    border-radius: 0.5rem;
+    display: flex; /* Centers the image */
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.imageDiv img {
+    max-height: 400px; /* Restrict image height */
+    max-width: 100%; /* Ensures responsiveness */
+    object-fit:fill; /* Prevents stretching */
+    border-radius: 0.5rem;
+    
+}
+.labels{
+    display: flex;
+    justify-content: center;
+    font-family: var(--MainLabelFont);
+    font-size: 4rem;
+    color: #5C3D2E 
+
+}
+
+.paras{
+    display: flex;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    color: #3d3d3d;
+    
+}
+
+.WWOlabel{
+    font-family: Roboto;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.WWOdata{
+    font-family: Roboto;
+    font-size: 1.2rem;
+    display: inline;
+}
+/* Round image container styling */
+.roundImageDiv {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Makes it a perfect circle */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee; /* Light gray background */
+    margin: 10px auto; /* Ensures spacing */
+}
+
+/* Image inside the round container */
+.roundImageDiv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents distortion */
+    border-radius: 50%; /* Ensures image remains round */
+}
+
+/* Image name styling */
+.imageName {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 5px;
+    color: #333; /* Dark gray for better readability */
+}
+
+/* Row spacing */
+.roundImageRow {
+    justify-content: center; /* Centers the round images */
+    margin-top: 20px;
+}

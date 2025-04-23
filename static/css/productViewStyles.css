@@ -1,0 +1,319 @@
+:root {
+    --MainLabelFont: Orbitron;
+  }
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoItalic';
+    src: url('../fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PlayfairItalic';
+    src: url('../fonts/logo/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/Orbitron-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Carousal */
+.carousel-item img{
+    height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+/* ends */
+
+.nav-bttn:hover{
+    color: #FFA725;
+}
+
+.navbar-brand{
+    font-family: PlayfairItalic;
+    font-size: 2rem;
+    color: #eea02a;
+    cursor: pointer;
+}
+
+.navbar-brand:hover{
+    color: #FFA725;
+}
+
+.user-initials-circle {
+    margin-left: 1rem;
+    width: 45px;
+    height: 100%;
+    background-color: white;
+    color: blue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.divider {
+    height: 5px;
+    background-color: #353535;
+    width: 80%;
+}
+
+
+.aboutUsDiv{
+    margin-top: 5rem;
+}
+
+body{
+    /* background-color: #D6C6A9; */
+    background-color: #EDE0D4
+}
+.divider {
+    height: 5px;
+    background-color: #5C3D2E;
+    width: 80%;
+}
+
+#smallerDivider{
+    height: 1px;
+    color: #A89988;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#productViewAndDescription{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    
+}
+
+.imageDiv{
+    background-color: rgb(202, 200, 200);
+    height: 500px;
+    border-radius: 15px;
+}
+
+
+/* Make the images in the carousel rounded */
+.carousel-inner .carousel-item img {
+    border-radius: 15px; /* Adjust the value to control the roundness */
+}
+
+/* Optional: Apply border-radius to carousel itself */
+.carousel {
+    border-radius: 15px; /* Makes the outer container rounded too */
+    overflow: hidden;    /* Ensures the content stays within the rounded container */
+}
+
+.addToCartbtn {
+    background-color: #5C3D2E; /* Set button background to match main title color */
+    color: white; /* Set text color to white */
+    border-color: #5C3D2E; /* Set border color to match main title color */
+}
+
+.addToCartbtn:hover {
+    background-color: #D6C6A9; /* Change background color on hover to match background */
+    color: #5C3D2E; /* Change text color on hover to match main title */
+    border-color: #D6C6A9; /* Border color change to match background */
+}
+
+.addToCartbtn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(92, 61, 46, 0.5); /* Add a subtle glow effect on focus */
+}
+#productTitle{
+    display: flex;
+    /* justify-content: center; */
+    font-family: var(--MainLabelFont);
+    font-size:3rem;
+    color: #5C3D2E ;
+    text-decoration: underline;
+    
+}
+
+#categoryType{
+    font-family: var(--MainLabelFont);
+    font-size: 1.5rem;
+    color: #5C3D2E;;
+
+}
+
+
+#referenceNo{
+    font-family: Roboto;
+    font-size: 1.2rem;
+    color: #A89988;
+
+}
+
+#price{
+    font-family: var(--MainLabelFont);
+    font-size: 1.8rem;
+    margin-top: 0.08rem;
+    margin-bottom: 1rem;
+    color: #5C3D2E;
+    font-weight: bolder;
+}
+
+#productViewAndDescription a{
+    color: #5C3D2E;
+    font-size: 1rem;
+    display: block;
+}
+
+#productInformationMainLabel{
+    display: flex;
+    justify-content: center;
+    font-family: var(--MainLabelFont);
+    font-size: 3rem;
+    color: #5C3D2E;
+    font-weight: bold;
+}
+
+.productDetailDiv{
+    margin-top: 4.5rem;
+    padding: 0rem 0rem 0rem 2rem;
+}
+
+#productInformationLabel, #ratingsLabel, #technicalInformationLabel{
+    font-size: 2rem;
+    font-family: var(--MainLabelFont);
+    font-style: bold;
+    color: #5C3D2E 
+   
+}
+
+.productInformationDiv, .ratingsDiv, .technicalInformationDiv{
+  margin: 0rem 500px 0rem 2rem; 
+  margin-bottom: 2rem;
+}
+
+.productInformationDiv h{
+    text-align: justify;  /* Justifies text like in Word */
+    text-indent: 2em;     /* Adds indentation to first line */
+    line-height: 1.6;  
+    
+}
+#PrductInformation{
+    /* color: #A89988 use with jdklsajaj */
+    color: #776252;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    
+}
+
+#averageRating{
+    display: flex;
+    justify-content: center;
+    font-family: Roboto;
+    font-size: 4rem;
+    color:#A67C52 ;
+
+}
+.ratingsAndStarsDiv{
+    display: flex;
+    justify-content: center;
+    font-family: Roboto;
+}
+
+
+.ratingstarsImg {
+    height: 25px;
+    width: 25px;
+    margin-left: 0.5rem;
+    fill: #5C3D2E;             /* Star color */
+    stroke: black;            /* Border color */
+    stroke-width: 1;          /* Border thickness */
+    shape-rendering: crispedges;  /* Ensures sharp, clear edges */
+}
+
+/* To differentiate the half and empty stars, you can add more styles here */
+.halfStar {
+    fill: #5C3D2E;              /* Half-filled star */
+}
+
+
+@supports (-webkit-appearance: none) and (not (-moz-appearance: none)) {
+    .progressBar {
+        width: 100%;
+        height: 20px;
+        border-radius: 10px;
+        background-color: #A89988; /* Background color */
+        appearance: none; /* Remove default styles */
+    }
+
+    .progressBar::-webkit-progress-bar {
+        background-color: #A89988; /* Background color */
+        border-radius: 10px;
+    }
+
+    .progressBar::-webkit-progress-value {
+        background-color: #5C3D2E; /* Progress bar color */
+        border-radius: 10px;
+    }
+}
+
+
+.technicalAtrriLabel{
+    font-family: var(--MainLabelFont);
+    font-size: 1.4rem;
+    color: #1D1D1D;
+}
+
+.technicalAtrriAV{
+    font-family: Roboto;
+    font-size: 1.2rem;
+    color: #776252;
+}
+.technicalInfoItem{
+    margin-bottom: 0.3rem;;
+}
+
+/* Add shadow and padding to the carousel container to create a lifted effect */
+.carousel {
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    /* padding: 10px; Space around carousel */
+    /* background-color: #fff; White background to separate carousel from background */
+}
+
+
+
+/* Optional: Control carousel control buttons to make them more prominent */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Darken control icons */
+    border-radius: 50%; /* Rounded buttons */
+    padding: 10px; /* Larger clickable area */
+}
+
+/* Optional: Add transition to the control buttons to make them smoother */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    transition: background-color 0.3s ease;
+}
+
+/* Add hover effect for the carousel control buttons */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
+}

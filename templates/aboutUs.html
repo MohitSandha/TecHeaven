@@ -1,0 +1,182 @@
+<!--1.0-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecHeaven</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aboutUs.css') }}"/>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('index') }}">TecHeaven</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active nav-bttn" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-bttn" href="{{ url_for('categories') }}">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-bttn" href="{{ url_for('aboutUs') }}">About Us</a>
+                        </li>
+                    </ul>
+    
+                    <!-- Search and Cart -->
+                    <div class="container d-flex justify-content-end col-lg-8 col-md-12 searchAndcart">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                  </svg>
+                            </button>
+                        </form>
+                        <li class="nav-item">
+                            <a href="{{ url_for('cart') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-bag" viewBox="0 0 16 16">
+                                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <div class="d-flex">
+                            {% if session.get('user_id') %}
+                                <!-- Display user initials in a circle -->
+                                <div class="dropdown">
+                                    <!-- <button class="user-initials-circle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+                                    <div class="user-initials-circle " data-bs-toggle="dropdown" type="button">
+                                        {{ session['first_name'][0].upper() }}{{ session['last_name'][0].upper() }}
+                                    </div>
+                                    <!-- </button> -->
+                                    <ul class="dropdown-menu bg-dark">
+                                      <li><a href="{{ url_for('logout') }}" class="dropdown-item" style="color: white;">Logout</a></li>
+                                      <li><a class="dropdown-item" href="#" style="color: white;">Address</a></li>
+                                      
+                                    </ul>
+                                  </div>
+                                    
+                            {% else %}
+                                <a href="{{ url_for('login') }}" class="btn btn-light ms-3">Login</a>
+                                <a href="{{ url_for('signup') }}" class="btn btn-outline-light ms-3">Sign Up</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container aboutUsDiv twodivs">
+            <div class="row">
+                <div class="col-lg-6">
+                    <label class="labels">ABOUT US</label>
+                    <p class="paras">
+                        Welcome to TecHeaven, your ultimate destination for classic and iconic technology from the 1970s to the 2000s. 
+                        We are passionate about preserving the golden era of innovation, bringing back the nostalgia of vintage computers, 
+                        mobile phones, gaming consoles, audio devices, and more. Whether you’re a collector, an enthusiast, or simply someone 
+                        who appreciates the charm of retro gadgets, we have something special for you.
+                    </p>
+                </div>
+                <div class="col-lg-6 imageDiv"> 
+                    <img src="{{ url_for('static', filename='img/categoriesImages/oldPhone.jpg')}}" alt="An old device">
+                </div>
+            </div>
+        </div>
+
+        <div class="container twodivs">
+            <div class="row">
+                <div class="col-lg-6 imageDiv">
+                    <img src="{{ url_for('static', filename='img/categoriesImages/schneider.jpg')}}" alt="image">
+                </div>
+                <div class="col-lg-6">
+                    <label class="labels">Our Mission</label>
+                    <p class="paras">At TecHeaven our mission is to reignite the past by making legendary technology accessible once again. We believe that old-school craftsmanship, timeless designs, and the simplicity of retro tech deserve a place in today’s digital world. Our goal is to connect enthusiasts with authentic, high-quality vintage products while keeping the spirit of innovation alive.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <label class="labels  ms-2" style="justify-content: left;">What We Offer</label>
+                    <ul>
+                        <li><label class="WWOlabel">Curated Collection:</label><p class="WWOdata"> A handpicked selection of retro computers, phones, audio gear, gaming consoles, and accessories.</p></li>
+		                <li><label class="WWOlabel">Authenticity & Quality:</label><p class="WWOdata"> Every product is tested, restored, and verified to ensure it meets the highest standards.</p></li>
+	                    <li><label class="WWOlabel">Nostalgic Experience:</label><p class="WWOdata"> Relive the days of floppy disks, Walkmans, landline dial tones, and iconic polyphonic ringtones.</p></li>
+	                    <li><label class="WWOlabel">Community & Support:</label><p class="WWOdata"> We’re not just a online store—we’re a hub for retro tech lovers! Join our community and share your passion for vintage technology.</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <label class="labels ms-2" style="justify-content: left;">Why Choose Us?</label>
+                    <p class="paras">In an era of disposable technology, we honor the classics. We believe that retro devices tell stories, evoke emotions, and hold sentimental value. By offering a space where the past meets the present, we help you relive memories and create new ones with technology that defined generations.</p>
+                        <p class="paras">Step into the past and embrace the magic of vintage tech—because retro never goes out of style! </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <label class="labels ms-2" style="justify-content: left;"> Meet Our Team</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+        <div class="row roundImageRow d-flex justify-content-center">
+            <div class="col-lg-2 col-md-3 col-4 d-flex flex-column align-items-center">
+                <div class="roundImageDiv">
+                    <img src="img1.jpg" alt="Image 1">
+                </div>
+                <div class="imageName">Image 1</div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-4 d-flex flex-column align-items-center">
+                <div class="roundImageDiv">
+                    <img src="img2.jpg" alt="Image 2">
+                </div>
+                <div class="imageName">Image 2</div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-4 d-flex flex-column align-items-center">
+                <div class="roundImageDiv">
+                    <img src="img3.jpg" alt="Image 3">
+                </div>
+                <div class="imageName">Image 3</div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-4 d-flex flex-column align-items-center">
+                <div class="roundImageDiv">
+                    <img src="img4.jpg" alt="Image 4">
+                </div>
+                <div class="imageName">Image 4</div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-4 d-flex flex-column align-items-center">
+                <div class="roundImageDiv">
+                    <img src="img5.jpg" alt="Image 5">
+                </div>
+                <div class="imageName">Image 5</div>
+            </div>
+        </div>
+    </div>
+                
+
+    </main>
+
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        
+</body>
+</html>

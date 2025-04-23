@@ -1,0 +1,206 @@
+:root {
+    --br: 1rem;
+  
+    --MainLabelFont: Orbitron;
+    --MainLabelFontColor: #5C3D2E;
+}
+
+
+body{
+    background-color: #EDE0D4;
+}
+
+.summaryArea{
+    /* background-color: #EC7FA9; */
+    background-color: #D9B79E;  /* Slightly darker beige */
+    height: 80vh;
+    border-radius: 0rem var(--br) var(--br) 0rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.mainArea{
+    height: 80vh;
+    background-color: #F2F2F2;  /* Light gray */
+    /* background-image: url('../img/landscapeImages/wood.jpg'); */
+    
+    border-radius: var(--br) 0rem 0rem var(--br);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoItalic';
+    src: url('../fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PlayfairItalic';
+    src: url('../fonts/logo/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/Orbitron-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.nav-bttn:hover{
+    color: #FFA725;
+}
+
+.navbar-brand{
+    font-family: PlayfairItalic;
+    font-size: 2rem;
+    color: #eea02a;
+    cursor: pointer;
+}
+
+.navbar-brand:hover{
+    color: #FFA725;
+}
+
+.user-initials-circle {
+    margin-left: 1rem;
+    width: 45px;
+    height: 100%;
+    background-color: white;
+    color: blue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mainAreaDivs{
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+}
+
+#cartTitle{
+    font-size: 3rem;
+    font-family: var(--MainLabelFont);
+    color: var(--MainLabelFontColor)
+
+}
+.divider {
+    height: 2px;
+    background-color: #b3acac;
+    width: 100%;
+}
+.summaryDivider {
+    background-color: white;
+   
+}
+
+.mainArea {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+#totalItems{
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+
+.total{
+    font-size: 1.5rem;
+}
+
+#topArea{
+    margin-top: 0.5rem;
+}
+
+#bottomArea{
+    height: 1rem;
+    margin-left: 2rem;
+}
+
+.imageDiv{
+    height: 5rem;
+    border-radius: 0.3rem;
+    
+    width: 8rem;
+}
+
+.image{
+    border-radius: 0.3rem;
+    object-fit: cover;
+    height: 5rem;
+    width: 8rem;
+}
+.productNamePrice{
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.summaryTitle{
+    font-family: var(--MainLabelFont);
+    font-size: 3rem;
+    color: var(--MainLabelFontColor)
+}
+
+.summaryLabels{
+    font-size: 1.5rem;
+    color: var(--MainLabelFontColor);
+}
+
+.mainAreaLabels{
+    color: var(--MainLabelFontColor);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.category_name{
+    font-family: Roboto;
+    font-size: 1.2rem;
+    color: #A89988;
+}
+
+.price{
+    font-family: Roboto;
+    font-weight:bolder;
+}
+
+.btn-minus {
+    border: none;
+    font-size: 1.7rem;
+    color: var(--MainLabelFontColor) /* Dark text color */
+}
+
+.quantity{
+    font-size: 1.5rem;
+    color: var(--MainLabelFontColor) /* Dark text color */
+}
+.btn-plus {
+    border: none; 
+    font-size: 1.7rem;
+    color: var(--MainLabelFontColor) /* Dark text color */
+}
+
+#mainArea::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+}
+
+#mainArea::-webkit-scrollbar-thumb {
+    background-color: var(--MainLabelFontColor); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners */
+}
+
+#mainArea::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+}

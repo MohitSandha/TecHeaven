@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ - Retro IT Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #9A616D;
+            color: #f8f9fa;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .faq-container {
+            background-color: #2c2c2c;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+        }
+
+        .accordion-item {
+            background-color: #2c2c2c;
+            border: 1px solid #444;
+        }
+
+        .accordion-button {
+            background-color: #2c2c2c;
+            color: #f8f9fa;
+            font-size: 1.2rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #3a3a3a;
+        }
+
+        .accordion-body {
+            color: #ddd;
+            background-color: #2c2c2c;
+        }
+
+        .accordion-button::after {
+            display: none;
+        }
+
+        .accordion-button span:last-child {
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-left: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-button:not(.collapsed) span:last-child {
+            transform: rotate(45deg);
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: #ffc107;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('index') }}">TecHeaven</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active nav-bttn" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-bttn" href="{{ url_for('categories') }}">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-bttn" href="{{ url_for('aboutUs') }}">About Us</a>
+                        </li>
+                    </ul>
+    
+                    <!-- Search and Cart -->
+                    <div class="container d-flex justify-content-end col-lg-8 col-md-12 searchAndcart">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 w-auto" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                  </svg>
+                            </button>
+                        </form>
+                        <li class="nav-item">
+                            <a href="{{ url_for('cart') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-bag" viewBox="0 0 16 16">
+                                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <div class="d-flex">
+                            {% if session.get('user_id') %}
+                                <!-- Display user initials in a circle -->
+                                <div class="dropdown">
+                                    <!-- <button class="user-initials-circle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+                                    <div class="user-initials-circle " data-bs-toggle="dropdown" type="button">
+                                        {{ session['first_name'][0].upper() }}{{ session['last_name'][0].upper() }}
+                                    </div>
+                                    <!-- </button> -->
+                                    <ul class="dropdown-menu bg-dark">
+                                      <li><a href="{{ url_for('logout') }}" class="dropdown-item" style="color: white;">Logout</a></li>
+                                      <li><a class="dropdown-item" href="#" style="color: white;">Address</a></li>
+                                      
+                                    </ul>
+                                  </div>
+                                    
+                            {% else %}
+                                <a href="{{ url_for('login') }}" class="btn btn-light ms-3">Login</a>
+                                <a href="{{ url_for('signup') }}" class="btn btn-outline-light ms-3">Sign Up</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+<div class="faq-container">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+        
+        <!-- FAQ 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading1">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    <span>What types of retro products do you sell?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    We offer nostalgic items from the 1970s to 2000s, including vintage electronics, décor, toys, fashion, and collectibles.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading2">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    <span>Are your products original vintage or reproductions?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Most of our items are original vintage. Reproductions, if any, are clearly marked in the product descriptions.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading3">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                    <span>How do you verify the authenticity of your items?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Each product is hand-inspected and authenticated based on branding, materials, and vintage production details.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                    <span>What condition are the products in?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    We clearly label product conditions, ranging from mint to gently used. Photos and descriptions are provided for clarity.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading5">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                    <span>Are the electronics in working condition?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes, all electronics are tested before shipping unless stated otherwise in the item description.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading6">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                    <span>Can I request more information or photos of a product?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Absolutely! Contact us with your request and we’ll be happy to provide more images or details.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading7">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                    <span>Do your vintage items come in original packaging?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Some items include original packaging. If available, it will be noted in the listing.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading8">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                    <span>Are your clothing items sized to modern standards?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    No, vintage sizing can vary. We provide exact measurements for each clothing item.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 9 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading9">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                    <span>Can I suggest a retro item I’m looking for?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes! Let us know what you’re looking for and we’ll reach out if we get it in stock.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 10 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading10">
+                <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                    <span>Are items restocked once sold out?</span>
+                    <span>+</span>
+                </button>
+            </h2>
+            <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Most vintage items are one-of-a-kind, but we often add similar ones as we source them.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
